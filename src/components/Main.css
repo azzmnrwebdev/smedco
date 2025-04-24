@@ -1,0 +1,49 @@
+.main {
+  background-color: #5961d0;
+}
+
+.card-custom {
+  overflow: hidden;
+  border-radius: 20px !important;
+  background-color: #1d293d !important;
+}
+
+.card-custom:hover {
+  cursor: pointer;
+}
+
+.card-custom:hover .card-title {
+  color: #5961d0 !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-custom:hover .image {
+  transform: scale(1.05);
+}
+
+.btn-close:focus {
+  box-shadow: none !important;
+}
+
+.modal-open .modal-backdrop {
+  opacity: 1 !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Break Points */
+@media (min-width: 576px) {
+  .card-custom .description {
+    line-clamp: 3;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+  }
+}
