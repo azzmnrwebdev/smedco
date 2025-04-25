@@ -50,13 +50,72 @@ const cardData = [
   },
 ];
 
+const Loading = () => {
+  return (
+    <>
+      <style>{`
+        .loading-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 1 !important;
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+        .loader {
+          width: 50px;
+          aspect-ratio: 1;
+          display:grid;
+          -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+          animation: l26 1s infinite steps(12);
+        }
+        .loader,
+        .loader:before,
+        .loader:after{
+          background:
+            radial-gradient(closest-side at 50% 12.5%, #e4e6ff 96%,#0000) 50% 0/20% 80% repeat-y,
+            radial-gradient(closest-side at 12.5% 50%, #e4e6ff 96%,#0000) 0 50%/80% 20% repeat-x;
+        }
+        .loader:before,
+        .loader:after {
+          content: "";
+          grid-area: 1/1;
+          transform: rotate(30deg);
+        }
+        .loader:after {
+          transform: rotate(60deg);
+        }
+        @keyframes l26 {
+          100% {transform:rotate(1turn)}
+        }
+      `}</style>
+
+      <div className="loading-wrapper">
+        <div className="loader"></div>
+      </div>
+    </>
+  );
+};
+
 const Main = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
 
   const handleShow = (item) => {
-    setModalData(item);
-    setShowModal(true);
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setModalData(item);
+      setShowModal(true);
+      setIsLoading(false);
+    }, 2000);
   };
 
   const handleClose = () => {
@@ -99,6 +158,9 @@ const Main = () => {
           ))}
         </Row>
       </Container>
+
+      {/* Loading Overlay */}
+      {isLoading && <Loading />}
 
       {/* Modal */}
       <Modal show={showModal} onHide={handleClose} scrollable>
