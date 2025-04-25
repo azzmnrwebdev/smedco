@@ -17,15 +17,25 @@ const Header = () => {
             <h4 className="subtitle text-danger mb-5 mb-md-0">
               Trusted and better guarantee
             </h4>
-            <img src={headerImage} alt="Foto" className="img-fluid d-md-none" />
+            <img
+              src={headerImage}
+              alt="Foto"
+              className="img-fluid d-md-none"
+              loading="lazy"
+            />
             <p className="description mt-3 text-center text-md-start">
               SMEdco IT Service repair involves fixing broken or malfunctioning
               parts of your laptop, MacBook and PC.
             </p>
           </Col>
 
-          <Col md={6} lg={7} className="d-none d-md-block">
-            <img src={headerImage} alt="Foto" className="header-image" />
+          <Col md={6} lg={7} className="d-none d-md-block offset-xl-1">
+            <img
+              src={headerImage}
+              alt="Foto"
+              className="header-image"
+              loading="lazy"
+            />
           </Col>
         </Row>
       </Container>

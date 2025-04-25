@@ -1,9 +1,5 @@
-.footer {
-  background: linear-gradient(to bottom, #5961d0, #e4e6ff);
-}
-
 .footer .title {
-  color: #fff;
+  color: #5961d0;
   font-weight: bold;
 }
 

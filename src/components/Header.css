@@ -1,7 +1,6 @@
 .header {
   max-height: 100%;
   overflow: hidden;
-  background: linear-gradient(to bottom, #e4e6ff, #5961d0);
 }
 
 .header .title {

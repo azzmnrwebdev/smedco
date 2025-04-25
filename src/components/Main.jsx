@@ -84,6 +84,7 @@ const Main = () => {
                   src={item.image}
                   className="image"
                   alt={item.title}
+                  loading="lazy"
                 />
                 <Card.Body className="p-4">
                   <Card.Title className="text-white title">
@@ -111,6 +112,7 @@ const Main = () => {
                 src={modalData.image}
                 alt={modalData.title}
                 className="img-fluid rounded mb-3"
+                loading="lazy"
               />
               {modalData.long_description ? (
                 <div
