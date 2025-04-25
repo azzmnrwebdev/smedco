@@ -1,5 +1,5 @@
 import "./Main.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScreenImage from "../assets/images/screen.png";
 import BattreyImage from "../assets/images/battery.png";
 import SoftwareImage from "../assets/images/software.png";
@@ -114,6 +114,8 @@ const Main = () => {
     setTimeout(() => {
       setModalData(item);
       setShowModal(true);
+
+      window.history.pushState({ modalOpen: true }, "");
       setIsLoading(false);
     }, 2000);
   };
@@ -121,7 +123,25 @@ const Main = () => {
   const handleClose = () => {
     setShowModal(false);
     setModalData(null);
+
+    if (window.history.state?.modalOpen) {
+      window.history.back();
+    }
   };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (showModal) {
+        handleClose();
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [showModal]);
 
   return (
     <div className="py-5 main">
