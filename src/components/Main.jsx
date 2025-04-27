@@ -63,6 +63,7 @@ const Loading = () => {
           display: flex;
           justify-content: center;
           align-items: center;
+          z-index: 1050;
           opacity: 1 !important;
           backdrop-filter: blur(5px);
           -webkit-backdrop-filter: blur(5px);
