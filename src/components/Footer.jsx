@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="py-5 footer">
+    <div className="py-5 footer position-relative">
       <Container>
         <h1 className="title mb-4">Our Service :</h1>
         <ListGroup>
